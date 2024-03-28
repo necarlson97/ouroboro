@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm6o71rerhcci"]
+
+[ext_resource type="Texture2D" uid="uid://dyvtrhxcwdc71" path="res://sprites/Level Design Textured.png" id="1_5ycu5"]
+[ext_resource type="PackedScene" uid="uid://dk6m5fulwqb0f" path="res://player.tscn" id="2_oaehr"]
+[ext_resource type="Texture2D" uid="uid://6j6h2i6vpuoq" path="res://sprites/Wall.png" id="3_qrlmh"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sd6o8"]
+polygon = PackedVector2Array(-95, -70, 75, -70, 90, 70, -95, 70)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelDesignTextured" type="Sprite2D" parent="."]
+position = Vector2(280, -262)
+texture = ExtResource("1_5ycu5")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="LevelDesignTextured"]
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_oaehr")]
+visible = false
+position = Vector2(2, 1)
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(274, -19)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_qrlmh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Wall"]
+occluder = SubResource("OccluderPolygon2D_sd6o8")

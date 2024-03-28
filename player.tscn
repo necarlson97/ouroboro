@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk6m5fulwqb0f"]
+
+[ext_resource type="Texture2D" uid="uid://c8h1umrs22uvl" path="res://sprites/Player.png" id="1_twhrq"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_je0lp"]
+[ext_resource type="Texture2D" uid="uid://d1b86nsck502h" path="res://sprites/Flashlight.png" id="3_pi3fr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k2fq2"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+linear_damp = 10.0
+script = ExtResource("2_je0lp")
+
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_twhrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_k2fq2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, 139)
+scale = Vector2(0.3, 0.3)
+color = Color(1, 0.866667, 0.670588, 1)
+shadow_enabled = true
+texture = ExtResource("3_pi3fr")
